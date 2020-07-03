@@ -1,0 +1,7 @@
+{
+  "name": "fastgi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
