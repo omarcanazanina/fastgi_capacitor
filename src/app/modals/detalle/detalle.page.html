@@ -1,0 +1,48 @@
+
+<ion-content>
+  <ion-item no-padding>
+    <ion-avatar item-start>
+      <img src="assets/icon/logo_contact.svg">
+    </ion-avatar>
+    <div *ngIf="transaccion.identificador == '0'">
+      <h3 class="titulo">Detalle egreso</h3>
+    </div>
+    <div *ngIf="transaccion.identificador == '1'">
+      <h3 class="titulo">Detalle Ingreso</h3>
+    </div>
+    <ion-button slot="end" fill="clear" (click)="closeUsuario()">
+      <ion-icon color="light" name="close" color="primary" class="icono"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="5">Monto:</ion-col>
+      <ion-col size="7">{{transaccion.monto}} Bs.</ion-col>
+    </ion-row>
+    <ion-row *ngIf="transaccion.identificador == '0'">
+      <ion-col size="5">Destinario:</ion-col>
+      <ion-col size="7">{{transaccion.nombre}}</ion-col>
+    </ion-row>
+    <ion-row *ngIf="transaccion.identificador == '1'">
+      <ion-col size="5">Origen:</ion-col>
+      <ion-col size="7">{{transaccion.nombre}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="5">Telefono:</ion-col>
+      <ion-col size="7">{{transaccion.telefono}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="5">Descripción:</ion-col>
+      <ion-col size="7">{{transaccion.descripcion}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="5">Fecha:</ion-col>
+      <ion-col size="7">{{transaccion.fechita}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="5">Saldo Balance:</ion-col>
+      <ion-col size="7">{{transaccion.saldo}} Bs.</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

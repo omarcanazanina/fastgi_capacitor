@@ -1,0 +1,82 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-buttons>
+        <ion-back-button mode="ios" text=""></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title>Datos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="ion-text-center">
+    <p>Configure su PIN para realizar transacciones, los datos de seguridad serán enviados a su correo</p>
+  </div>
+  <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+    <ion-grid>
+      <ion-row>
+
+        <ion-col size="12" size-md="6" offset-md="3">
+          <ion-input class="input" type="email" placeholder="Correo" autocapitalize inputmode="text"
+            formControlName="email"></ion-input>
+          <div *ngFor="let error of errorMessages.email">
+            <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+        </ion-col>
+
+
+        <ion-col size="12" size-md="6" offset-md="3">
+          <ion-input class="input" maxlength="4" type="tel" inputmode="number" placeholder="Nuevo PIN" inputmode="text"
+            formControlName="newPin"></ion-input>
+          <div *ngFor="let error of errorMessages.newPin">
+            <ng-container *ngIf="newPin.hasError(error.type) && (newPin.dirty || newPin.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+        </ion-col>
+        <ion-col size="12" size-md="6" offset-md="3">
+          <ion-input class="input" maxlength="4" type="tel" inputmode="number" placeholder="Confirmar PIN"
+            inputmode="text" formControlName="pinConfirm"></ion-input>
+          <div *ngFor="let error of errorMessages.pinConfirm">
+            <ng-container *ngIf="pinConfirm.hasError(error.type) && (pinConfirm.dirty || pinConfirm.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+        </ion-col>
+        <ion-col size="12" size-md="6" offset-md="3">
+          <ion-button [disabled]="!registrationForm.valid" shape="round" expand="full" color="primary" type="submit">
+            Aceptar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+
+
+<!-- <ion-content class="ion-padding">
+  <p>Ingrese PIN para realizar transacciones, CORREO para guardar sus datos</p>
+  <ion-label>PIN nuevo</ion-label>
+  <div class="divider_10"></div>
+  <ion-input mode="md" type="text" placeholder="PIN nuevo" [(ngModel)]="nuevopin"></ion-input>
+  <div class="divider_20"></div>
+  <ion-label>Confirmar PIN </ion-label>
+  <div class="divider_10"></div>
+  <ion-input mode="md" type="text" placeholder="Confirmar PIN" [(ngModel)]="confirmapin"></ion-input>
+  <div class="divider_20"></div>
+  <ion-label>Correo</ion-label>
+  <div class="divider_10"></div>
+  <ion-input mode="md" type="text" placeholder="Correo" [(ngModel)]="correo"></ion-input>
+</ion-content>
+
+<ion-footer mode="md" class="ion-no-border ion-padding">
+  <ion-button shape="round" expand="full" color="primary" (click)="guardarpin(nuevopin,confirmapin,correo)">
+    Aceptar
+  </ion-button>
+</ion-footer> -->

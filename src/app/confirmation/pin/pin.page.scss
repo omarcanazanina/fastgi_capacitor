@@ -1,0 +1,64 @@
+.circle_pin {
+    padding: 0;
+    margin: 0 auto;
+    width: 15vw;
+    height: 15vw;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.16);
+}
+
+.btn_delete {
+    padding: 0;
+    margin: 0 auto;
+    width: 15vw;
+    height: 15vw;
+    background: transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--ion-color-primary);
+    -webkit-box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.16);
+
+}
+
+.number {
+    padding: 0;
+    margin: 0;
+}
+
+ion-col {
+    padding: 0;
+    margin: 0;
+    // background-color: red;
+    // border: 1px solid pink;
+}
+
+
+.logo {
+    width: 20%;
+}
+
+ion-button {
+    --ion-color-contrast: var(--ion-color-primary);
+}
+
+.input {
+    font-size: 6vw;
+    text-align: center;
+    background-color: transparent !important;
+    border-radius: 0;
+}
+
+.item_imput {
+    margin: auto;
+    width: 40vw;
+}

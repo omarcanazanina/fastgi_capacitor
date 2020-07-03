@@ -1,0 +1,94 @@
+<ion-header mode="md" class="ion-no-border" [translucent]="true">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-buttons>
+        <ion-back-button mode="ios" text="" defaultHref="/load-money"></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img [src]="contacto.img">
+      </ion-avatar>
+      <ion-label>
+        <ion-text>
+          <p>{{nombre}}</p>
+          <p>
+            <ion-icon color="primary" name="call-sharp"></ion-icon> {{contacto.telefono}}
+          </p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-searchbar class="searchbar_rounded" shape="round" cancelButtonText="Cancelar" placeholder="Buscar">
+  </ion-searchbar> -->
+  
+  <ion-list>
+
+    <ion-item lines="none" *ngFor="let item of lista">
+      <ion-label *ngIf="item.dato == 'recibetransferencia' ||item.dato == 'enviatransferencia'">
+        <h2>Transferencia</h2>
+        <p>{{item.fechita}}</p>
+      </ion-label>
+      <ion-label *ngIf="item.dato == 'enviado' ||item.dato == 'recibio'">
+        <h2>Cobro</h2>
+        <p>{{item.fechita}}</p>
+      </ion-label>
+      <ion-label slot="end">
+        <ion-text class="ion-text-right" *ngIf="item.dato == 'recibetransferencia'">
+          <h1>+{{item.monto}}</h1>
+        </ion-text>
+        <ion-text class="ion-text-right" *ngIf="item.dato == 'enviatransferencia'">
+          <h1>-{{item.monto}}</h1>
+        </ion-text>
+        <ion-text class="ion-text-right" *ngIf="item.dato == 'enviado' && item.estado == 0 ">
+          <h1>{{item.monto}} </h1>
+          <p>En espera</p>
+        </ion-text>
+        <ion-text class="ion-text-right" *ngIf="item.dato == 'enviado' && item.estado == 1 ">
+          <h1>+{{item.monto}} </h1>
+          <p>Ya pagado</p>
+        </ion-text>
+        <ion-text class="ion-text-right" *ngIf="item.dato == 'recibio' && item.estado == 0" (click)="pagarcobro(item)">
+          <h1>{{item.monto}}</h1>
+          <p>Pagar</p>
+        </ion-text>
+        <ion-text class="ion-text-right" *ngIf="item.dato == 'recibio' && item.estado == 1">
+          <h1>- {{item.monto}} </h1>
+          <p>Ya pagado</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer mode="md" class="ion-no-border">
+
+  <ion-grid fixed class="ion-padding">
+    <ion-row>
+      <ion-col size="6">
+        <div class="ion-text-center">
+          <ion-button shape="round" expand="full" color="white" (click)="transferir()">
+            <ion-text color="primary">
+              Transferir
+            </ion-text>
+          </ion-button>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="ion-text-center">
+          <!-- -->
+          <ion-button shape="round" expand="full" color="white" (click)="cobro()">
+            <ion-text color="primary">
+              Cobrar
+            </ion-text>
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-footer>

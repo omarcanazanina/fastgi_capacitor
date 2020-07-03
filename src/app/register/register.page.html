@@ -1,0 +1,64 @@
+<ion-header mode="ios" [translucent]="true" class="ion-no-border">
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-buttons>
+        <ion-back-button mode="ios" color="white" text="" defaultHref="/login"></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title>
+      <h1>Registrarse</h1>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+      <ion-row>
+        <ion-col size="10" offset="1" size-md="4" offset-md="4">
+          <div class="ion-text-center">
+            <ion-text color="white">
+              <p style="font-size: 0.8em;">Te enviaremos un sms con el código de verificación.</p>
+            </ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="4" size-md="4" offset-md="4">
+          <ion-select class="input" interface="popover" placeholder="País" formControlName="code">
+            <ion-select-option value="+591">🇧🇴</ion-select-option>
+            <ion-select-option value="+54">🇦🇷</ion-select-option>
+          </ion-select>
+          <div *ngFor="let error of errorMessages.code">
+            <ng-container *ngIf="code.hasError(error.type) && (code.dirty || code.touched)">
+              <small class="error-message">
+                <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{error.message}}
+              </small>
+            </ng-container>
+          </div>
+        </ion-col>
+        <ion-col size="8" size-md="4" offset-md="4">
+          <ion-input class="input" type="number" placeholder="Número" formControlName="phone"></ion-input>
+          <div *ngFor="let error of errorMessages.phone">
+            <ng-container *ngIf="phone.hasError(error.type) && (phone.dirty || phone.touched)">
+              <small class="error-message">
+                <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{error.message}}
+              </small>
+            </ng-container>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offset="2" size="8" size-md="6" offset-md="3">
+          <ion-button [disabled]="!registrationForm.valid" type="submit" shape="round" expand="block">Registrarse
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </ion-grid>
+  <div id="recaptcha-container1"></div>
+</ion-content>

@@ -1,0 +1,65 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-buttons>
+        <ion-back-button mode="ios" text="" defaultHref="/tabs/tab4"></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title>Teléfono</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" size-md="4" offset-md="4">
+          <ion-select class="input" interface="popover" placeholder="País" formControlName="code">
+            <ion-select-option value="+591">🇧🇴</ion-select-option>
+            <ion-select-option value="+54">🇦🇷</ion-select-option>
+          </ion-select>
+          <div *ngFor="let error of errorMessages.code">
+            <ng-container *ngIf="code.hasError(error.type) && (code.dirty || code.touched)">
+              <small class="error-message">
+                <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{error.message}}
+              </small>
+            </ng-container>
+          </div>
+        </ion-col>
+        <ion-col size="8" size-md="4" offset-md="4">
+          <ion-input class="input" type="number" placeholder="Número" formControlName="phone"></ion-input>
+          <div *ngFor="let error of errorMessages.phone">
+            <ng-container *ngIf="phone.hasError(error.type) && (phone.dirty || phone.touched)">
+              <small class="error-message">
+                <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{error.message}}
+              </small>
+            </ng-container>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-md="6" offset-md="3">
+          <ion-button [disabled]="!registrationForm.valid" shape="round" expand="full" color="primary" type="submit">
+            Aceptar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+<!-- <ion-content class="ion-padding">
+  <ion-label>Código país</ion-label>
+  <div class="divider_10"></div>
+  <ion-select color="primary" placeholder="Código de país" interface="popover">
+    <ion-select-option value="+591">🇧🇴 +591</ion-select-option>
+    <ion-select-option value="">🇦🇷 +54</ion-select-option>
+  </ion-select>
+  <div class="divider_20"></div>
+  <ion-label>Número de teléfono</ion-label>
+  <div class="divider_10"></div>
+  <ion-input mode="md" type="text" placeholder="Número de teléfono"></ion-input>
+</ion-content>
+
+<ion-footer mode="md" class="ion-no-border ion-padding">
+  <ion-button shape="round" expand="full" color="primary" (click)="onClick()">
+    Aceptar
+  </ion-button>
+</ion-footer> -->

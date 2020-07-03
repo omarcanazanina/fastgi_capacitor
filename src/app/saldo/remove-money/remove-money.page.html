@@ -1,0 +1,48 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-buttons>
+        <ion-back-button mode="ios" text="" defaultHref="/tabs"></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title>Retirar dinero</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-label>Banco</ion-label>
+  <div class="divider_10"></div>
+  <ion-select color="primary" placeholder="Banco" interface="popover">
+    <ion-select-option value="BNB">BNB</ion-select-option>
+    <ion-select-option value="Banco Union">Banco Union</ion-select-option>
+  </ion-select>
+  <div class="divider_20"></div>
+  <ion-label>Número de cuenta</ion-label>
+  <div class="divider_10"></div>
+  <ion-input mode="md" type="text" placeholder="Número  de cuenta"></ion-input>
+  <div class="divider_20"></div>
+  <ion-label>Nombre titular</ion-label>
+  <div class="divider_10"></div>
+  <ion-input mode="md" type="text" placeholder="Nombre titular"></ion-input>
+</ion-content>
+
+<ion-footer mode="md" class="ion-no-border">
+  <ion-toolbar class="ion-padding">
+    <label>Monto</label>
+    <div class="ion-text-center">
+      <ion-text color="primary">
+        <h3>1234.56 Bs.</h3>
+      </ion-text>
+    </div>
+    <div class="divider_20"></div>
+    <ion-button shape="round" expand="full" color="white" (click)="onClick()">
+      <ion-text color="primary">
+        Modificar monto
+      </ion-text>
+    </ion-button>
+    <div class="divider_20"></div>
+    <ion-button shape="round" expand="full" color="primary" (click)="onClick()">
+      Retirar
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

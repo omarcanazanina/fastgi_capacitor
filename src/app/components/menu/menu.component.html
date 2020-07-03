@@ -1,0 +1,29 @@
+<ion-menu side="end" menuId="first_menu" contentId="main">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title color="primary">Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="loadMoney()">
+        <ion-icon slot="start" color="primary" src="/assets/load_money_icon_512.svg"></ion-icon>
+        <ion-text color="primary">
+          Cargar dinero</ion-text>
+      </ion-item>
+      <ion-item (click)="removeMoney()">
+        <ion-icon slot="start" color="primary" src="/assets/remove_money_icon_512.svg"></ion-icon>
+        <ion-text color="primary">
+          Retirar dinero</ion-text>
+      </ion-item>
+      <ion-item (click)="amount()">
+        <ion-text>
+          Monto</ion-text>
+      </ion-item>
+      <ion-item (click)="pin()">
+        <ion-text>
+          PIN</ion-text>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

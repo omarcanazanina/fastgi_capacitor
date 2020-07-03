@@ -1,0 +1,99 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-buttons>
+        <ion-back-button mode="ios" text="" defaultHref="/load-money"></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title>Código personal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="ion-text-center">
+
+    <div #qrcode></div>
+    <div *ngIf="montorecibido == ''">
+      <h4>Monto indeterminado</h4>
+    </div>
+    <div *ngIf="montorecibido != ''">
+      <h4>{{montorecibido}} BOB.</h4>
+    </div>
+
+    <ion-button shape="round" expand="full" color="white" (click)="monto()">
+      <ion-text color="primary">
+        Modificar Monto
+      </ion-text>
+    </ion-button>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <!-- <ion-col size="6">
+        <div class="ion-text-center">
+          <ion-icon color="primary" size="large" name="download"></ion-icon>
+          <ion-text>
+            <h6>Descargar QR</h6>
+          </ion-text>
+        </div>
+      </ion-col> -->
+      <ion-col offset="3" size="6" (click)="onShare()">
+        <div class="ion-text-center">
+          <ion-icon color="primary" size="large" name="share-social-sharp"></ion-icon>
+          <ion-text>
+            <p>Compartir QR</p>
+          </ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!-- <ion-footer mode="md" class="ion-no-border ion-padding">
+  <ion-button shape="round" expand="full" color="white" routerLink="/amount">
+    <ion-text color="primary">
+      Modificar Monto
+    </ion-text>
+  </ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <div class="ion-text-center">
+          <ion-icon color="primary" size="large" name="download"></ion-icon>
+          <ion-text>
+            <h6>Descargar QR</h6>
+          </ion-text>
+        </div>
+      </ion-col>
+      <ion-col offset="3" size="6" (click)="onShare()">
+        <div class="ion-text-center">
+          <ion-icon color="primary" size="large" name="share-social-sharp"></ion-icon>
+          <ion-text>
+            <p>Compartir QR</p>
+          </ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer> -->
+
+
+<!-- 
+<ion-tabs>
+  <ion-tab-bar slot="bottom" class="ion-no-border">
+    <ion-button shape="round" expand="full" color="white" (click)="monto()">
+      <ion-text color="primary">
+        Modificar Monto
+      </ion-text>
+    </ion-button>
+   
+
+    <ion-tab-button (click)="onShare()">
+      <ion-icon color="primary" size="large" name="share-social-sharp"></ion-icon>
+      <ion-label>Compartir</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>
+
+ -->

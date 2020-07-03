@@ -1,0 +1,84 @@
+<ion-header mode="md" class="ion-no-border" [translucent]="true">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="end">
+      <ion-menu-button color="primary" menu="first_menu"><img src="/assets/menu_icon_512.svg"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img [src]="usuario.img">
+      </ion-avatar>
+      <ion-label>
+        <ion-text color="primary">
+          <h3>{{usuario.cajainterna}} Bs</h3>
+        </ion-text>
+        <p>{{usuario.nombre}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- 
+  <ion-button shape="round" expand="full" color="primary" (click)="updatecontacts()">
+    Actualizar contactos
+  </ion-button>
+  -->
+
+  <ion-searchbar class="searchbar_rounded" shape="round" cancelButtonText="Cancelar" placeholder="Buscar"
+    (ionChange)="BuscarContacto( $event )">
+  </ion-searchbar>
+  <!-- 
+      <ion-item lines="none" routerLink="/single-contact">
+-->
+  <ion-list #lista>
+    <ion-item-sliding *ngFor="let usu of contactstexttrue | filtro: textoBuscar">
+      <ion-item-options side="start">
+        <ion-item-option (click)="transferir(usu)">
+          <ion-icon slot="start" size="large" src="/assets/send_money_icon_512.svg"></ion-icon>Enviar
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item lines="none" (click)="historial(usu)">
+        <ion-avatar slot="start">
+          <img src="assets/fastgi_secondary_512.svg" />
+        </ion-avatar>
+        <ion-text>
+          <p>{{usu.nombre}}</p>
+          <p>
+            <ion-icon name="call-sharp"></ion-icon> {{usu.telefono}}
+          </p>
+        </ion-text>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <!-- -->
+        <ion-item-option (click)="cobrar(usu)">
+          <ion-icon slot="start" size="large" src="/assets/recibe_money_icon_512.svg"></ion-icon>Recibir
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <p>Invitar a contactos</p>
+
+  <ion-item *ngFor="let usu of contactstextnone | filtro: textoBuscar" lines="none">
+    <ion-avatar item-start>
+      <img src="assets/icon/default.jpg" />
+    </ion-avatar>
+    <ion-label class="label-alumnos"> {{usu.nombre}}
+      <p> {{usu.telefono}} </p>
+    </ion-label>
+    <ion-button (click)="invitar()" slot="end" shape="round">
+      <div class="ion-text-capitalize">
+        Invitar
+      </div>
+
+    </ion-button>
+  </ion-item>
+
+
+</ion-content>

@@ -1,0 +1,78 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="end">
+      <ion-menu-button color="primary" menu="first_menu"><img src="/assets/menu_icon_512.svg"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img loading='lazy' [src]="usuario.img">
+      </ion-avatar>
+      <ion-label>
+        <ion-text color="primary">
+          <h3>{{usuario.cajainterna}} Bs.</h3>
+        </ion-text>
+        <p>{{usuario.nombre}}</p>
+
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-grid fixed class="ion-no-padding">
+    <ion-row>
+      <ion-col size="6">
+        <ion-card (click)="scan()">
+          <ion-card-content class="ion-no-padding">
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col size="5"> <img width="70px" src="/assets/scan_icon_512.svg"></ion-col>
+                <ion-col offset="1" size="6" class="ion-align-self-center">
+                  <ion-text>
+                    <p><b>Enviar</b></p>
+                    <p>Dinero</p>
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card (click)="qr()">
+          <ion-card-content class="ion-no-padding">
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col size="5"> <img width="70px" src="/assets/qr_icon_512.svg"></ion-col>
+                <ion-col offset="1" size="6" class="ion-align-self-center">
+                  <ion-text>
+                    <p><b>Recibir</b></p>
+                    <p>Dinero</p>
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!-- Cargar saldo -->
+  <div [style.visibility]="(usuario.cajainterna == 0) ? 'visible' : 'hidden' ">
+    <div class="animate__animated animate__pulse animate__delay-1s animate__repeat-3">
+      <div class="ion-text-center ion-padding">
+        <ion-text>
+          <p>No cuentas con saldo, agrega saldo para realizar transacciones</p>
+        </ion-text>
+        <ion-button (click)="loadMoney()" shape="round">
+          Agregar saldo
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

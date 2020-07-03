@@ -1,0 +1,99 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-buttons>
+        <ion-back-button mode="ios" text="" defaultHref="/load-money"></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title>Formulario de Tarjeta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="4" offset-md="4">
+          <ion-input class="input" maxlength="20" type="text" placeholder="Nombre" formControlName="name" value={{name1}} ></ion-input>
+          <div *ngFor="let error of errorMessages.name">
+            <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
+              <small class="error-message">
+                <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{error.message}}
+              </small>
+            </ng-container>
+          </div>
+        </ion-col>
+        <ion-col size="12" size-md="4" offset-md="4">
+          <!-- <ion-input class="input" maxlength="22" type="text" placeholder="Número" [(ngModel)]="number_" formControlName="number" (ionChange)="numCard()"></ion-input> -->
+          <ion-input class="input" maxlength="19" type="tel" placeholder="Número" formControlName="number" value={{number1}} 
+            (ionChange)="cc_format($event.target.value)" [(ngModel)]="creditCardNumber"></ion-input>
+          <div *ngFor="let error of errorMessages.number">
+            <ng-container *ngIf="number.hasError(error.type) && (number.dirty || number.touched)">
+              <small class="error-message">
+                <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{error.message}}
+              </small>
+            </ng-container>
+          </div>
+        </ion-col>
+        <!-- <ion-col size="12">
+          <ion-datetime displayFormat="MM / YY" max="2030" placeholder="Mes / Año" cancelText="Cancelar"
+            doneText="Aceptar"></ion-datetime>
+        </ion-col> -->
+        <ion-col size="6" size-md="4" offset-md="4">
+          <!-- <ion-select class="input" interface="popover" placeholder="País" formControlName="code">
+            <ion-select-option value="+591">🇧🇴</ion-select-option>
+            <ion-select-option value="+54">🇦🇷</ion-select-option>
+          </ion-select> -->
+          <ion-datetime displayFormat="MM / YY" max="2030" placeholder="Mes / Año" cancelText="Cancelar"
+            doneText="Aceptar" formControlName="date" value={{date1}} ></ion-datetime>
+          <div *ngFor="let error of errorMessages.date">
+
+            <ng-container *ngIf="date.hasError(error.type) && (date.dirty || date.touched)">
+              <small class="error-message">
+                <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{error.message}}
+              </small>
+            </ng-container>
+          </div>
+        </ion-col>
+        <ion-col size="6" size-md="4" offset-md="4">
+          <ion-input class="input" maxlength="3" type="tel" placeholder="Cod. Seguridad" formControlName="code" value={{code1}} >
+          </ion-input>
+          <div *ngFor="let error of errorMessages.code">
+            <ng-container *ngIf="code.hasError(error.type) && (code.dirty || code.touched)">
+              <small class="error-message">
+                <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{error.message}}
+              </small>
+            </ng-container>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" size-md="6" offset-md="3">
+          <ion-button [disabled]="!registrationForm.valid" shape="round" expand="full" color="primary" type="submit">
+            Aceptar
+          </ion-button>
+          <div *ngIf="  controldisabled == 1 ">
+            <ion-button shape="round" expand="full" color="white" (click)="onClick()" disabled="true">
+              <ion-text color="primary">
+                Eliminar
+              </ion-text>
+            </ion-button>
+          </div>
+
+          <div *ngIf="  controldisabled == 2 ">
+            <ion-button shape="round" expand="full" color="white" (click)="eliminar()">
+              <ion-text color="primary">
+                Eliminar
+              </ion-text>
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+
+
+  <ion-footer mode="md" class="ion-no-border ion-padding">
+
+  </ion-footer>

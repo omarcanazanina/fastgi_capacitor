@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#7120EA;}
+</style>
+<g>
+	<g>
+		<path class="st0" d="M186,32v44h-85c-13.8,0-25,11.2-25,25v85H32V77c0-24.9,20.2-45,45-45H186z"/>
+	</g>
+	<g>
+		<path class="st0" d="M480,77v109h-44v-85c0-13.8-11.2-25-25-25h-85V32h109C459.8,32,480,52.1,480,77z"/>
+	</g>
+	<g>
+		<path class="st0" d="M480,326v109c0,24.8-20.2,45-45,45H326v-44h85c13.8,0,25-11.2,25-25v-85H480z"/>
+	</g>
+	<g>
+		<path class="st0" d="M186,436v44H77c-24.8,0-45-20.2-45-45V326h44v85c0,13.8,11.2,25,25,25H186z"/>
+	</g>
+	<g id="Grupo_655_30_" transform="translate(0 0)">
+		<path id="Trazado_954_30_" class="st0" d="M294.7,147.8c8.6,8.6,8.6,22.6,0,31.2l0,0l-62.5,62.4c-8.6,8.6-8.6,22.6,0,31.2
+			s22.6,8.6,31.2,0l0,0l-15.6,15.6c-17.2,17.2-45.2,17.2-62.4,0s-17.2-45.2,0-62.4l78-78.1C272.1,139.2,286,139.2,294.7,147.8z"/>
+		<path id="Trazado_955_30_" class="st0" d="M333,248.4c8.6,8.6,8.6,22.6,0,31.2l0,0l-31.2,31.2c-8.6,8.6-8.6,22.6,0,31.2
+			s22.6,8.6,31.2,0l-15.6,15.6c-17.2,17.2-45.2,17.2-62.4,0s-17.2-45.2,0-62.4l46.8-46.8C310.4,239.8,324.4,239.8,333,248.4z"/>
+	</g>
+</g>
+</svg>

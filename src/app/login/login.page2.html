@@ -1,0 +1,150 @@
+<ion-content>
+  <div class="ion-text-center">
+    <ion-text color="white">
+      <h1>Fastgi</h1>
+    </ion-text>
+  </div>
+  <ion-grid>
+    <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+      <ion-row>
+        <!-- <ion-col size="12" size-md="4" offset-md="4">
+          <div class="ion-text-center animate__animated animate__flipInY">
+            <div class="ion-text-center animate__animated animate__fadeOut animate__delay-2s">
+              <img width="15%" src="/assets/fastgi_icon_white_512.svg" alt="">
+            </div>
+          </div>
+        </ion-col> -->
+        <ion-col size="10" offset="1" size-md="4" offset-md="4">
+          <div class="ion-text-center">
+            <ion-text color="white">
+              <p style="font-size: 0.8em;">Te enviaremos un sms con el código de verificación.</p>
+            </ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" size-md="4" offset-md="4">
+          <ion-input class="input" type="number" placeholder="Correo" formControlName="phone"></ion-input>
+          <div *ngFor="let error of errorMessages.phone">
+            <ng-container *ngIf="phone.hasError(error.type) && (phone.dirty || phone.touched)">
+              <small class="error-message">
+                <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{error.message}}
+              </small>
+            </ng-container>
+          </div>
+        </ion-col>
+        <ion-col size="12" size-md="4" offset-md="4">
+          <ion-input class="input" type="number" placeholder="Contraseña" formControlName="phone"></ion-input>
+          <div *ngFor="let error of errorMessages.phone">
+            <ng-container *ngIf="phone.hasError(error.type) && (phone.dirty || phone.touched)">
+              <small class="error-message">
+                <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{error.message}}
+              </small>
+            </ng-container>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" size-md="4" offset-md="4">
+          <div class="ion-text-right">
+            <ion-text color="white">
+              <p style="font-size: 0.8em;" (click)="registro()">Registrarse</p>
+            </ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+
+
+
+      <ion-row>
+        <ion-col offset="2" size="8" size-md="6" offset-md="3">
+          <ion-button [disabled]="!registrationForm.valid" type="submit" shape="round" expand="block">Ingresar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </ion-grid>
+
+
+
+  <!-- <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="10" offset="1">
+
+          <div class="ion-text-center animate__animated animate__flipInY">
+            <div class="ion-text-center animate__animated animate__fadeOut animate__delay-2s">
+              <img width="20%" src="/assets/fastgi_icon_white_512.svg" alt="">
+            </div>
+          </div>
+          <div class="ion-text-center">
+            <ion-text color="white">
+              <p style="font-size: 0.8em;">Te enviaremos un sms con el código de verificación.</p>
+            </ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+
+
+
+
+
+      <ion-col size="6">
+        <ion-select class="input" interface="popover" placeholder="País" formControlName="code">
+          <ion-select-option value="+591">🇧🇴</ion-select-option>
+          <ion-select-option value="+54">🇦🇷</ion-select-option>
+        </ion-select>
+        <div *ngFor="let error of errorMessages.code">
+          <ng-container *ngIf="code.hasError(error.type) && (code.dirty || code.touched)">
+
+            <small class="error-message">
+              <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{error.message}}
+            </small>
+
+          </ng-container>
+        </div>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-input class="input" type="number" inputmode="tel" placeholder="Número" formControlName="phone"></ion-input>
+        <div *ngFor="let error of errorMessages.phone">
+          <ng-container *ngIf="phone.hasError(error.type) && (phone.dirty || phone.touched)">
+            <small class="error-message">
+              <ion-icon slot="start" name="alert-circle-outline"></ion-icon> {{error.message}}
+            </small>
+          </ng-container>
+        </div>
+      </ion-col>
+
+
+      <ion-row>
+        <ion-col size="12">
+          <div class="ion-text-right">
+            <ion-text color="white">
+              <p style="font-size: 0.8em;" (click)="registro()">Registrarse</p>
+            </ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col offset="2" size="8" size-md="6" offset-md="3">
+          <ion-button [disabled]="!registrationForm.valid" type="submit" shape="round" expand="block">Ingresar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+
+  </form> -->
+
+
+
+  <div id="recaptcha-container"></div>
+</ion-content>

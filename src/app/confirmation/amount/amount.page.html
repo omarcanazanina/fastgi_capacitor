@@ -1,0 +1,163 @@
+<ion-header mode="md" [translucent]="true" class="ion-no-border">
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-buttons>
+        <ion-back-button mode="ios" text="" defaultHref="/tabs"></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+
+    <ion-item *ngIf="control == '1'" color="primary" lines="none">
+      <ion-avatar slot="start">
+        <img src="/assets/shapes.svg">
+      </ion-avatar>
+      <ion-label>
+        <ion-text>
+          <p>Carga tarjeta</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="control == 'transferir' || control == 'cobrar' || control =='pagarcobro'" color="primary" lines="none">
+      <ion-avatar slot="start">
+        <img src="/assets/shapes.svg">
+      </ion-avatar>
+      <ion-label>
+        <ion-text>
+          <p>{{dato1}}</p>
+          <p>{{dato2}}</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="control == 'pagarsinmonto'" color="primary" lines="none">
+      <ion-avatar slot="start">
+        <img src="/assets/shapes.svg">
+      </ion-avatar>
+      <ion-label>
+        <ion-text>
+          <p>{{nombrecob}}</p>
+          <p>{{destinatario.telefono}}</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+
+
+<ion-content color="primary">
+  <div class="ion-text-center ion-padding">
+    <h1 style="font-size: 3em;" *ngIf="amount==''">0 BOB</h1>
+    <h1 style="font-size: 3em;" *ngIf="amount!=''">{{ amount_show }} BOB</h1>
+    <div class="divider_20"></div>
+    
+    <ion-button size="large" color="white" (click)="confirmar()" shape="round">
+      Aceptar monto
+    </ion-button>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-grid class="ion-padding">
+    <ion-row>
+      <ion-col offset="2.5" size="2" class="ion-align-self-center">
+        <div class="circle_pin" (click)="onClick(1)">
+          <ion-text color="primary">
+            <h1 class="number">1</h1>
+          </ion-text>
+        </div>
+      </ion-col>
+      <ion-col offset="0.5" size="2" class="ion-align-self-center">
+        <div class="circle_pin" (click)="onClick(2)">
+          <ion-text color="primary">
+            <h1 class="number">2</h1>
+          </ion-text>
+        </div>
+      </ion-col>
+      <ion-col offset="0.5" size="2" class="ion-align-self-center">
+        <div class="circle_pin" (click)="onClick(3)">
+          <ion-text color="primary">
+            <h1 class="number">3</h1>
+          </ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+    <div class="divider_20"></div>
+    <ion-row>
+      <ion-col offset="2.5" size="2" class="ion-align-self-center">
+        <div class="circle_pin" (click)="onClick(4)">
+          <ion-text color="primary">
+            <h1 class="number">4</h1>
+          </ion-text>
+        </div>
+      </ion-col>
+      <ion-col offset="0.5" size="2" class="ion-align-self-center">
+        <div class="circle_pin" (click)="onClick(5)">
+          <ion-text color="primary">
+            <h1 class="number">5</h1>
+          </ion-text>
+        </div>
+      </ion-col>
+      <ion-col offset="0.5" size="2" class="ion-align-self-center">
+        <div class="circle_pin" (click)="onClick(6)">
+          <ion-text color="primary">
+            <h1 class="number">6</h1>
+          </ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+    <div class="divider_20"></div>
+    <ion-row>
+      <ion-col offset="2.5" size="2" class="ion-align-self-center">
+        <div class="circle_pin" (click)="onClick(7)">
+          <ion-text color="primary">
+            <h1 class="number">7</h1>
+          </ion-text>
+        </div>
+      </ion-col>
+      <ion-col offset="0.5" size="2" class="ion-align-self-center">
+        <div class="circle_pin" (click)="onClick(8)">
+          <ion-text color="primary">
+            <h1 class="number">8</h1>
+          </ion-text>
+        </div>
+      </ion-col>
+      <ion-col offset="0.5" size="2" class="ion-align-self-center">
+        <div class="circle_pin" (click)="onClick(9)">
+          <ion-text color="primary">
+            <h1 class="number">9</h1>
+          </ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+    <div class="divider_20"></div>
+    <ion-row>
+      <ion-col offset="2.5" size="2" class="ion-align-self-center">
+        <div class="circle_pin" (click)="onClick('.')">
+          <ion-text color="primary">
+            <h1 class="number">.</h1>
+          </ion-text>
+        </div>
+      </ion-col>
+
+      <ion-col offset="0.5" size="2" class="ion-align-self-center">
+        <div class="circle_pin" (click)="onClick(0)">
+          <ion-text color="primary">
+            <h1 class="number">0</h1>
+          </ion-text>
+        </div>
+      </ion-col>
+      <ion-col offset="0.5" size="2" class="ion-align-self-center">
+        <div class="btn_delete" (click)="onClick('x')">
+          <ion-text color="white">
+            <h1 class="number">X</h1>
+          </ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

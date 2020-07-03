@@ -1,0 +1,58 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-buttons>
+        <ion-back-button mode="ios" text="" defaultHref="/tabs/tab4"></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title>Correo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="6" offset-md="3">
+          <ion-input class="input" type="email" placeholder="Correo" autocapitalize inputmode="text"
+            formControlName="email"></ion-input>
+          <div *ngFor="let error of errorMessages.email">
+            <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+        </ion-col>
+        <ion-col size="12" size-md="6" offset-md="3">
+          <ion-input class="input" type="email" placeholder="Confirmar correo" autocapitalize inputmode="text"
+            formControlName="emailConfirm"></ion-input>
+          <div *ngFor="let error of errorMessages.emailConfirm">
+            <ng-container *ngIf="emailConfirm.hasError(error.type) && (emailConfirm.dirty || emailConfirm.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+        </ion-col>
+        <ion-col size="12" size-md="6" offset-md="3">
+          <ion-button [disabled]="!registrationForm.valid" shape="round" expand="full" color="primary" type="submit">
+            Aceptar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+
+<!-- <ion-content class="ion-padding">
+  <ion-label>Correo electrónico</ion-label>
+  <div class="divider_10"></div>
+  <ion-input mode="md" type="email" value="{{correo}}" [(ngModel)]="correo"> </ion-input>
+  <div class="divider_20"></div>
+  <ion-label>Confirmar correo</ion-label>
+  <div class="divider_10"></div>
+  <ion-input mode="md" type="email" placeholder="Confirmar correo" [(ngModel)]="confirmacorreo"></ion-input>
+</ion-content>
+
+<ion-footer mode="md" class="ion-no-border ion-padding">
+  <ion-button shape="round" expand="full" color="primary" (click)="modificar(correo,confirmacorreo)">
+    Aceptar
+  </ion-button>
+</ion-footer> -->
